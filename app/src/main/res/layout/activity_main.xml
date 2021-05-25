@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_grey"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context=".MainActivity"
+    tools:deviceIds="wear">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/inner_frame_layout_padding"
+        app:boxedEdges="none"
+        tools:ignore="MissingPrefix">
+
+        <LinearLayout
+            android:id="@+id/llContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnShowToast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/edit_margin"
+                android:layout_marginTop="@dimen/edit_margin"
+                android:text="btnShowToast"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/edit_margin"
+                android:text="Watch can't show Toast!!!" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="1、null" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="2、null+singleLine"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="3、normal"
+                android:imeOptions="normal"
+
+                />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="4、normal+singleLine"
+                android:imeOptions="normal"
+
+                />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="5、actionUnspecified"
+                android:imeOptions="actionUnspecified" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="6、actionUnspecified+singleLine"
+                android:imeOptions="actionUnspecified"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="7、actionNone"
+                android:imeOptions="actionNone" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="8、actionNone+singleLine"
+                android:imeOptions="actionNone"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="9、actionGo"
+                android:imeOptions="actionGo" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="10、actionGo+singleLine"
+                android:imeOptions="actionGo"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="11、actionSearch"
+                android:imeOptions="actionSearch" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="12、actionGo+singleLine"
+                android:imeOptions="actionSearch"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="13、actionSend"
+                android:imeOptions="actionSend" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="14、actionSend+singleLine"
+                android:imeOptions="actionSend"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="15、actionNext"
+                android:imeOptions="actionNext" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="16、actionNext+singleLine"
+                android:imeOptions="actionNext"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="17、actionDone"
+                android:imeOptions="actionDone" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="18、actionDone+singleLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="19、actionPrevious"
+                android:imeOptions="actionPrevious" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="20、actionPrevious+singleLine"
+                android:imeOptions="actionPrevious"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="21、flagNoFullscreen"
+                android:imeOptions="flagNoFullscreen" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="22、flagNoFullscreen+singleLine"
+                android:imeOptions="flagNoFullscreen"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="23、flagNavigatePrevious"
+                android:imeOptions="flagNavigatePrevious" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="24、flagNavigatePrevious+singleLine"
+                android:imeOptions="flagNavigatePrevious"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="25、flagNavigateNext"
+                android:imeOptions="flagNavigateNext" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="26、flagNavigateNext+singleLine"
+                android:imeOptions="flagNavigateNext"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="27、flagNoExtractUi"
+                android:imeOptions="flagNoExtractUi" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="28、flagNoExtractUi+singleLine"
+                android:imeOptions="flagNavigateNext"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="29、flagNoAccessoryAction"
+                android:imeOptions="flagNoAccessoryAction" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="30、flagNoAccessoryAction+singleLine"
+                android:imeOptions="flagNavigateNext"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="31、flagNoEnterAction"
+                android:imeOptions="flagNoEnterAction" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="32、flagNoEnterAction+singleLine"
+                android:imeOptions="flagNoEnterAction"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="33、flagForceAscii"
+                android:imeOptions="flagForceAscii" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="34、flagForceAscii+singleLine"
+                android:imeOptions="flagNoEnterAction"
+                android:singleLine="true" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="35、text"
+                android:inputType="text" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="36、textCapCharacters"
+                android:inputType="textCapCharacters" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="37、textCapWords"
+                android:inputType="textCapWords" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="38、textCapSentences"
+                android:inputType="textCapSentences" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="39、textAutoCorrect"
+                android:inputType="textAutoCorrect" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="40、textAutoComplete"
+                android:inputType="textAutoComplete" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="41、textMultiLine"
+                android:inputType="textMultiLine" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="42、textImeMultiLine"
+                android:inputType="textImeMultiLine" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="43、textNoSuggestions"
+                android:inputType="textNoSuggestions" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="44、textUri"
+                android:inputType="textUri" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="45、textEmailAddress"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="46、textEmailSubject"
+                android:inputType="textEmailSubject" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="47、textShortMessage"
+                android:inputType="textShortMessage" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="48、textLongMessage"
+                android:inputType="textLongMessage" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="49、textPersonName"
+                android:inputType="textPersonName" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="50、textPersonName"
+                android:inputType="textPersonName" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="51、textPassword"
+                android:inputType="textPassword" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="52、textVisiblePassword"
+                android:inputType="textVisiblePassword" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="53、textWebEditText"
+                android:inputType="textWebEditText" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="54、textWebEmailAddress"
+                android:inputType="textWebEmailAddress" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="55、textWebPassword"
+                android:inputType="textWebPassword" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="56、number"
+                android:inputType="number" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="57、numberDecimal"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="58、numberPassword"
+                android:inputType="numberPassword" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="59、numberSigned"
+                android:inputType="numberSigned" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="60、phone"
+                android:inputType="phone" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="61、textPhonetic"
+                android:inputType="textPhonetic" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="62、date"
+                android:inputType="date" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:hint="63、datetime"
+                android:inputType="datetime" />
+
+            <EditText
+                style="@style/WatchEditStyle"
+                android:layout_marginBottom="@dimen/edit_margin"
+                android:hint="64、time"
+                android:inputType="time" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.wear.widget.BoxInsetLayout>
