@@ -101,7 +101,7 @@
 
             <EditText
                 style="@style/WatchEditStyle"
-                android:hint="12、actionGo+singleLine"
+                android:hint="12、actionSearch+singleLine"
                 android:imeOptions="actionSearch"
                 android:singleLine="true" />
 
