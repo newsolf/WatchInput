@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/edit_margin"
-                android:text="Watch can't show Toast!!!" />
+                android:text="Watch can show Toast!!!" />
 
             <EditText
                 style="@style/WatchEditStyle"

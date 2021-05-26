@@ -1,22 +1,20 @@
 package com.newolf.watchinput
 
 import android.os.Bundle
-import android.support.wearable.input.RotaryEncoder
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.FragmentActivity
 import androidx.wear.ambient.AmbientModeSupport
-import com.google.android.wearable.input.RotaryEncoderHelper
+import com.blankj.utilcode.util.ToastUtils
+import kotlin.math.roundToInt
 
-class MainActivity : FragmentActivity() {
+class MainActivity : FragmentActivity(), AmbientModeSupport.AmbientCallbackProvider {
 
     companion object {
         const val TAG = "MainActivity"
     }
-
-    lateinit var mToast: Toast
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,18 +37,17 @@ class MainActivity : FragmentActivity() {
                 /**
                  * Called when the focus state of a view has changed.
                  *
-                 * @param v The view whose state has changed.
                  * @param hasFocus The new focus state of v.
                  */
                 if (hasFocus){
-                    ShowToast(child.hint)
+                    showToast(child.hint)
                 }
             }
 
         }
 
         findViewById<Button>(R.id.btnShowToast).setOnClickListener {
-            ShowToast("btnShowToast")
+            showToast("btnShowToast")
         }
 
         val scrollView = findViewById<ScrollView>(R.id.scrollView)
@@ -63,7 +60,7 @@ class MainActivity : FragmentActivity() {
 
                 // Swap these axes if you want to do horizontal scrolling instead
                 Log.e(TAG, "initListener: delta = $delta" )
-                v.scrollBy(0, Math.round(delta).toInt())
+                v.scrollBy(0, delta.roundToInt())
 
                 return@OnGenericMotionListener true
             }
@@ -74,64 +71,58 @@ class MainActivity : FragmentActivity() {
 
     }
 
-    private fun ShowToast(hint: CharSequence?) {
-        if (!this::mToast.isInitialized) {
-            mToast = Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT)
-        }
-        mToast.cancel()
-        mToast.setText(hint)
-        Log.e(TAG, "ShowToast: hint = $hint" )
-        mToast.show()
-
+    private fun showToast(hint: CharSequence?) {
+        Log.e(TAG, "ShowToast: hint = $hint .")
+        ToastUtils.showShort(hint)
     }
 
     /**
-     * @return the [AmbientCallback] to be used by this class to communicate with the
+     * @return the [AmbientModeSupport.AmbientCallback] to be used by this class to communicate with the
      * entity interested in ambient events.
      */
-//    override fun getAmbientCallback(): AmbientModeSupport.AmbientCallback {
-//        return object : AmbientModeSupport.AmbientCallback() {
-//            /**
-//             * Called when an activity is entering ambient mode. This event is sent while an activity is
-//             * running (after onResume, before onPause). All drawing should complete by the conclusion
-//             * of this method. Note that `invalidate()` calls will be executed before resuming
-//             * lower-power mode.
-//             *
-//             * @param ambientDetails bundle containing information about the display being used.
-//             * It includes information about low-bit color and burn-in protection.
-//             */
-//            override fun onEnterAmbient(ambientDetails: Bundle?) {
-//                super.onEnterAmbient(ambientDetails)
-//                Log.e(TAG, "onEnterAmbient: ")
-//            }
-//
-//            /**
-//             * Called when the system is updating the display for ambient mode. Activities may use this
-//             * opportunity to update or invalidate views.
-//             */
-//            override fun onUpdateAmbient() {
-//                super.onUpdateAmbient()
-//                Log.e(TAG, "onUpdateAmbient: ")
-//            }
-//
-//            /**
-//             * Called when an activity should exit ambient mode. This event is sent while an activity is
-//             * running (after onResume, before onPause).
-//             */
-//            override fun onExitAmbient() {
-//                super.onExitAmbient()
-//                Log.e(TAG, "onExitAmbient: ")
-//            }
-//
-//            /**
-//             * Called to inform an activity that whatever decomposition it has sent to Sidekick is no
-//             * longer valid and should be re-sent before enabling ambient offload.
-//             */
-//            override fun onAmbientOffloadInvalidated() {
-//                super.onAmbientOffloadInvalidated()
-//                Log.e(TAG, "onAmbientOffloadInvalidated: ")
-//
-//            }
-//        }
-//    }
+    override fun getAmbientCallback(): AmbientModeSupport.AmbientCallback {
+        return object : AmbientModeSupport.AmbientCallback() {
+            /**
+             * Called when an activity is entering ambient mode. This event is sent while an activity is
+             * running (after onResume, before onPause). All drawing should complete by the conclusion
+             * of this method. Note that `invalidate()` calls will be executed before resuming
+             * lower-power mode.
+             *
+             * @param ambientDetails bundle containing information about the display being used.
+             * It includes information about low-bit color and burn-in protection.
+             */
+            override fun onEnterAmbient(ambientDetails: Bundle?) {
+                super.onEnterAmbient(ambientDetails)
+                Log.e(TAG, "onEnterAmbient: ")
+            }
+
+            /**
+             * Called when the system is updating the display for ambient mode. Activities may use this
+             * opportunity to update or invalidate views.
+             */
+            override fun onUpdateAmbient() {
+                super.onUpdateAmbient()
+                Log.e(TAG, "onUpdateAmbient: ")
+            }
+
+            /**
+             * Called when an activity should exit ambient mode. This event is sent while an activity is
+             * running (after onResume, before onPause).
+             */
+            override fun onExitAmbient() {
+                super.onExitAmbient()
+                Log.e(TAG, "onExitAmbient: ")
+            }
+
+            /**
+             * Called to inform an activity that whatever decomposition it has sent to Sidekick is no
+             * longer valid and should be re-sent before enabling ambient offload.
+             */
+            override fun onAmbientOffloadInvalidated() {
+                super.onAmbientOffloadInvalidated()
+                Log.e(TAG, "onAmbientOffloadInvalidated: ")
+
+            }
+        }
+    }
 }
