@@ -16,12 +16,59 @@ android {
 
     }
 
-    buildTypes {
+
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            storeFile file('WatchInputRelease.keystore')
+            keyAlias 'WatchInputRelease'
+            keyPassword 'NeWolf'
+            storePassword 'NeWolf'
+            v1SigningEnabled true
+            v2SigningEnabled false
+        }
+        debug {
+            storeFile file('debug.keystore')
+            keyAlias 'debug'
+            keyPassword 'android'
+            storePassword 'android'
         }
     }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            multiDexEnabled true
+            multiDexKeepProguard file('multidex-config.pro')
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            debuggable true
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    //打包后应用名称
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            def fileName = ""
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                if (variant.buildType.name.equals('release')) {//如果是release包
+                    fileName = "WatchInput_v${defaultConfig.versionName}_${variant.buildType.name}.apk"
+                } else if (variant.buildType.name.equals('debug')) {//如果是debug包
+                    fileName = "WatchInput_v${defaultConfig.versionName}_${variant.buildType.name}.apk"
+                }
+                outputFileName = fileName
+            }
+        }
+    }
+
 }
 
 dependencies {
@@ -34,6 +81,8 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation 'androidx.wear:wear:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     compileOnly 'com.google.android.wearable:wearable:2.8.1'
 
     implementation 'com.blankj:utilcodex:1.28.4'

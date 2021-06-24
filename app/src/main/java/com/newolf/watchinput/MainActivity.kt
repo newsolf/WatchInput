@@ -1,5 +1,6 @@
 package com.newolf.watchinput
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
@@ -48,6 +49,7 @@ class MainActivity : FragmentActivity(), AmbientModeSupport.AmbientCallbackProvi
 
         findViewById<Button>(R.id.btnShowToast).setOnClickListener {
             showToast("btnShowToast")
+            startPwdActivity()
         }
 
         val scrollView = findViewById<ScrollView>(R.id.scrollView)
@@ -69,6 +71,10 @@ class MainActivity : FragmentActivity(), AmbientModeSupport.AmbientCallbackProvi
         })
 
 
+    }
+
+    private fun startPwdActivity() {
+        startActivity(Intent(this,PwdActivity::class.java))
     }
 
     private fun showToast(hint: CharSequence?) {
