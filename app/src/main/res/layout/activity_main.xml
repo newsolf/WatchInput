@@ -223,7 +223,7 @@
             <EditText
                 style="@style/WatchEditStyle"
                 android:hint="34、flagForceAscii+singleLine"
-                android:imeOptions="flagNoEnterAction"
+                android:imeOptions="flagForceAscii"
                 android:singleLine="true" />
 
             <EditText
